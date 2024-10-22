@@ -16,13 +16,43 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Node.js (to use npm commands if needed, though not necessary for pure static files)
+    - name: Set up Node.js (to use npm commands if needed)
       uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '20'
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages  # Deploy to the gh-pages branch
-        folder: ./  # Use the root folder as the source for deployment
+        folder: build  # If using a build folder, update this path
+
+
+# name: Deploy static website to GitHub Pages
+
+# on:
+#   push:
+#     branches:
+#       - main  # Trigger the workflow when there is a push to the 'main' branch
+
+# permissions:
+#   contents: write
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v4
+
+#     - name: Set up Node.js (to use npm commands if needed, though not necessary for pure static files)
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: '14'
+
+#     - name: Deploy to GitHub Pages
+#       uses: JamesIves/github-pages-deploy-action@v4
+#       with:
+#         branch: gh-pages  # Deploy to the gh-pages branch
+#         folder: ./  # Use the root folder as the source for deployment
