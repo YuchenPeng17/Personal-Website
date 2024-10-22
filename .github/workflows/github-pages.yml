@@ -16,7 +16,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Node.js (if needed)
+    - name: Set up Node.js (to use npm commands if needed, though not necessary for pure static files)
       uses: actions/setup-node@v3
       with:
         node-version: '20'
@@ -25,34 +25,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages  # Deploy to the gh-pages branch
-        folder: ./  # Deploy from the root folder since you don't have a build folder
-
-
-# name: Deploy static website to GitHub Pages
-
-# on:
-#   push:
-#     branches:
-#       - main  # Trigger the workflow when there is a push to the 'main' branch
-
-# permissions:
-#   contents: write
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Checkout repository
-#       uses: actions/checkout@v4
-
-#     - name: Set up Node.js (to use npm commands if needed, though not necessary for pure static files)
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: '14'
-
-#     - name: Deploy to GitHub Pages
-#       uses: JamesIves/github-pages-deploy-action@v4
-#       with:
-#         branch: gh-pages  # Deploy to the gh-pages branch
-#         folder: ./  # Use the root folder as the source for deployment
+        folder: ./  # Use the root folder as the source for deployment
+        clean: false  # Prevent the action from deleting files that have been removed from the source
