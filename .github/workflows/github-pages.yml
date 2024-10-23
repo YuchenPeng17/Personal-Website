@@ -26,4 +26,4 @@ jobs:
       with:
         branch: gh-pages  # Deploy to the gh-pages branch
         folder: ./  # Use the root folder as the source for deployment
-        clean: false  # Prevent the action from deleting files that have been removed from the source
+        clean: false  # Prevent the action from deleting files that have been removed from the source (rsync failed with exit code 24)
