@@ -319,6 +319,7 @@ img {
   display: inline-block;
   /* background-color: #45454566; */
   min-height: 50px;
+  margin-top: 15px;
 }
 .co{
   width: 70%;
